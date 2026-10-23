@@ -12,7 +12,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -26,12 +25,8 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v4
         with:
-          accept-android-sdk-licenses: false
           log-accepted-android-sdk-licenses: false
           packages: ''
-
-      - name: Accept Android SDK licenses
-        run: yes | sdkmanager --licenses
 
       - name: Install Android SDK packages
         run: sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
